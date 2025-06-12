@@ -1,88 +1,75 @@
-💰 AI Financial Voice Assistant
-🎙️ A voice-enabled AI assistant built with FastAPI and React that listens to your spoken finance-related queries and responds with smart financial advice — powered by the Groq AI (LLaMA3) model.
+# 💰 AI Financial Voice Assistant
 
-Speak your question. Let the AI handle the rest.
+🎙️ A voice-enabled AI assistant built with **FastAPI** and **React** that listens to your spoken **finance-related queries** and responds with smart, multilingual advice — powered by **Groq's LLaMA3** model.
 
-🚀 Features
-✅ Voice-to-text using Web Speech API (React + react-speech-recognition)
+> 🗣️ Speak your question. Let the AI handle the rest.
 
-🧠 Finance detection using keyword filters + AI verification
+---
 
-🗣️ Text-to-speech response using SpeechSynthesis
+## 🚀 Features
 
-🔐 Secure API with FastAPI + GROQ
+- ✅ **Voice-to-text** using Web Speech API (React + `react-speech-recognition`)
+- 🧠 **Financial query detection** with keyword filtering + AI relevance check
+- 🗣️ **Text-to-speech** responses using `SpeechSynthesis`
+- 🔐 **Secure API integration** with Groq (LLaMA 3 8B) via FastAPI
+- 🌍 **Multilingual support** (e.g., Hindi, Spanish, French)
+- 🌐 **CORS-enabled** for seamless local frontend-backend development
 
-🌍 Multilingual support (specify language in request)
+---
 
-🌐 CORS-enabled for local frontend-backend development
+## 🧩 Tech Stack
 
-🧩 Tech Stack
-🖥 Frontend
-React.js (Vite)
+### 🖥️ Frontend
+- **React.js** (Vite)
+- **Tailwind CSS** – modern UI styling
+- **react-speech-recognition** – real-time voice transcription
 
-Tailwind CSS for elegant UI
+### 🧠 Backend
+- **FastAPI** (Python)
+- `requests`, `dotenv`, `pydantic`
+- **Groq API** (LLaMA 3 8B)
+- Financial query detection logic (keyword + AI)
 
-react-speech-recognition for real-time voice input
+---
 
-🧠 Backend
-FastAPI (Python)
+## 📸 Preview
 
-requests, dotenv, pydantic
-
-GROQ API (LLaMA 3 8B model)
-
-Financial query filtering using AI + keywords
-
-📸 Preview
 ![main page](https://github.com/user-attachments/assets/db29b5dc-594e-4385-be2b-829fb3a04418)
 ![use case](https://github.com/user-attachments/assets/41ba99dc-d691-40ec-b3b7-0312b36463ed)
 ![output](https://github.com/user-attachments/assets/8146d23e-f415-4689-98fa-72d729aeec87)
 
+---
 
+## 📦 Setup Instructions
 
-📦 Setup Instructions
-1️⃣ Clone the repository
-bash
-Copy
-Edit
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/yourusername/finance-voice-assistant.git
 cd finance-voice-assistant
+
 2️⃣ Backend (FastAPI)
-bash
-Copy
-Edit
 cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-📄 Create a .env file:
-env
-Copy
-Edit
-GROQ_API_KEY=your_groq_api_key_here
-▶ Run the server
-bash
-Copy
-Edit
+
+▶ Run the server:
 uvicorn main:app --reload --port 8000
+
 3️⃣ Frontend (React)
-bash
-Copy
-Edit
-cd frontend
+cd ../frontend
 npm install
 npm run dev
-The frontend runs at http://localhost:5173
-The backend runs at http://localhost:8000
 
 🧠 How It Works
-User clicks Start Speaking to begin recording voice.
+User clicks "Start Speaking" to begin voice input.
 
-Transcript is generated live using the browser’s SpeechRecognition API.
+Browser uses SpeechRecognition to generate a live transcript.
 
-On Ask for Advice, transcript is validated for financial relevance.
+When the user clicks "Ask for Advice", the transcript is analyzed:
 
-Valid input is passed to Groq's LLaMA3 model for advice generation.
+If relevant to finance, it's passed to the backend
 
-The response is read aloud using browser’s speechSynthesis.
+Backend queries Groq's LLaMA3 for advice using the API key.
 
+Response is returned and spoken aloud using SpeechSynthesis.
