@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: financial-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+    rootDir: backend
